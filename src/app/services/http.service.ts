@@ -15,7 +15,7 @@ export class HttpService {
   readonly URL_SEARCH1 = "?s=sun";
   readonly URL_SEARCH2 = "?i=";
   readonly URL_SEARCH3 = "?s=";
-  readonly URL = "http://www.omdbapi.com/";
+  readonly URL = "https://www.omdbapi.com/";
 
   constructor(
     private http: HttpClient,
