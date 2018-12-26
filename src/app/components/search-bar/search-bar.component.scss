@@ -1,0 +1,63 @@
+@import "../../../assets/style/all";
+$glass-size: 24px;
+$search-height: 70px;
+
+$search-height-sm: 45px;
+$glass-size-sm: 18px;
+
+
+
+.search-bar-container {
+  position: relative;
+  display: block;
+  height: $search-height;
+
+}
+
+.input-group.md-form.form-sm.form-2 input.lime-border {
+  border: 1px solid #cddc39;
+}
+
+.search-bar {
+  position: absolute;
+  width: 100%;
+  padding: 10px 70px 10px 20px;
+  height: $search-height;
+  border-radius: 50px !important;
+  font-size: 32px;
+  @include bp(sm) {
+    height: $search-height-sm;
+    font-size: $glass-size-sm;
+
+  }
+}
+
+.search-btn {
+  position: absolute;
+  right: 0;
+  height: $search-height;
+  background-color: $color-azure;
+  width: 55px;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 0px 50px 50px 0px;
+  font-size: $glass-size;
+  color: white;
+  z-index: 10;
+
+  @include bp(sm) {
+    height: $search-height-sm;
+    font-size: $glass-size-sm;
+
+  }
+}
+
+.search-glass {
+  position: relative;
+  padding-top: calc(70px / 2 - 24px / 2); //($search-height / 2) - ($glass-size / 2)
+  @include bp(sm) {
+    padding-top: calc(45px / 2 - 18px / 2); //($search-height / 2) - ($glass-size / 2)
+
+  }
+}

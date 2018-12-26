@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row my-1 border border-secondary rounded main-row" (click)="onShowHideDetails()">
+    <div class="title-box">
+      <h5 class="title-text">{{movie.Title | onlyEnglish | titlecase}}</h5>
+    </div>
+    <div class="btn-box ">
+      <app-btn-edit class="" [movieObject]="movie"></app-btn-edit>
+      <app-btn-delete class="" [movieId]="movie.Id"></app-btn-delete>
+    </div>
+  </div>
+
+
+
+  <div class="details-box " #detailsBox>
+    <div class="details-content row ">
+      <div class="details-item">
+        <b>Genre:</b> {{movie.Genre}}
+      </div>
+      <div class="details-item">
+        <b>Year:</b> {{movie.Year }}
+      </div>
+      <div class="details-item">
+        <b>Length:</b> {{movie.Runtime | MovieTime}}
+      </div>
+      <div class="details-item">
+        <b>Director:</b> {{movie.Director}}
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- @import url(https://fonts.googleapis.com/css?family=Roboto:100); -->

@@ -1,0 +1,54 @@
+<nav class="navbar navbar-dark bg-primary">
+  <span class="navbar-brand mb-0 h1"><b>Movie Serching.COM</b></span>
+  <ul class="nav justify-content-end">
+      <div class="btn-container" >
+        <a class="btn-add-new" (click)="openVerticallyCentered(content)"  >Add A New Movie</a>
+      </div>>
+    
+    </ul>
+</nav>
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">New</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+  
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input type="text" class="form-control" id="title" formControlName="Title">
+  
+        </div>
+  
+        <div class="form-group">
+          <label for="director">Director Name:</label>
+          <input type="text" class="form-control" id="director" formControlName="Director">
+        </div>
+  
+        <div class="form-group">
+          <label for="year">Release Year:</label>
+          <input type="text" class="form-control" id="year" formControlName="Year">
+        </div>
+  
+        <div class="form-group">
+          <label for="genre">Genre:</label>
+          <input type="text" class="form-control" id="genre" formControlName="Genre">
+        </div>
+  
+        <div class="form-group">
+          <label for="runtime">Runtime In Minutes:</label>
+          <input type="number" class="form-control" id="runtime" formControlName="Runtime">
+        </div>
+  
+      </form>
+  
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-outline-dark" (click)="onSubmit()">Save</button>
+    </div>
+  </ng-template>

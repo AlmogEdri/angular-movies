@@ -1,0 +1,13 @@
+@import "../../../assets/style/all";
+
+.container {
+
+  @include bp(md) {
+    padding: 10px;
+  }
+
+  @include bp(sm) {
+    padding: 0px;
+  }
+
+}

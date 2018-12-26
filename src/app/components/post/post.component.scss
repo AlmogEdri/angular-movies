@@ -1,0 +1,52 @@
+@import "../../../assets/style/all";
+
+.main-row {
+  background-color: $color-light-blue;
+  color: white;
+  width: 100%;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding: 5px 5px;
+}
+
+.details-box {
+  overflow: hidden;
+  height: 0px;
+}
+
+.title-box {
+  width: calc(100% - 132px); // 100% width - 120px(.btn-box)
+  display: inline-block;
+}
+
+.title-text {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  @include bp(sm) {font-size: 18px}
+
+}
+
+.btn-box {
+  width: 132px;
+}
+
+.details-box {
+  background-color: $color-light-azure;
+  box-shadow: 0px 5px 20px rgba($color: $color-dark-blue, $alpha: .3);
+  padding: 0 20px;
+  border-radius: 0px 0 10px 10px;
+}
+
+.details-item {
+  display: inline-block;
+  width: 50%;
+  padding-left: 5px;
+  @include bp(sm) {font-size: 14px}
+
+}
+
+
+
+@include bp(md) {}

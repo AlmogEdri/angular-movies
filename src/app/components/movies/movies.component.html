@@ -1,0 +1,7 @@
+<div class="container">
+  <div class="row" *ngIf="movies">
+    <div class="col-12" *ngFor="let movie of movies">
+      <app-post [movie]="movie"></app-post>
+    </div>
+  </div>
+</div>
