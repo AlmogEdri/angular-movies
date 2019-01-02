@@ -1,19 +1,14 @@
-<div *ngIf="movies.length < 1" class="container">
+<div *ngIf="!movies.length " class="container">
   <div class="row">
     <h2 class="mx-auto">there is no such movie</h2>
   </div>
 </div>
 <div class="container">
   <div class="search-bar-container input-group xs-form form-sm form-2 my-3">
-    <input #searchInput class="form-control search-bar  amber-border" type="text" placeholder="Search movies..."
+    <input #searchInput id="searchInput" class="form-control search-bar  amber-border" type="text" placeholder="Search movies..."
       aria-label="Search" (keyup)="onAddMovie($event)">
     <span class="search-btn " id="basic-text1"><i class="fas fa-search text-grey search-glass" aria-hidden="true"
         (click)="onSearchMovies(searchInput.value)"></i></span>
-    <!-- <input #searchInput class="form-control my-0 py-1 amber-border" type="text" placeholder="Search movies..." aria-label="Search"> -->
-    <!-- <div class="input-group-append">
-      <span class="search-btn " id="basic-text1"><i class="fas fa-search text-grey" aria-hidden="true"
-          (click)="onSearchMovies(searchInput.value)"></i></span>
-    </div> -->
+
   </div>
 </div>
-<!-- <span class="input-group-text  search-btn " id="basic-text1"><i class="fas fa-search text-grey" aria-hidden="true" -->

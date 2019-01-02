@@ -10,21 +10,26 @@ import { HttpService } from "../../services/http.service";
   styleUrls: ["./search-bar.component.scss"]
 })
 export class SearchBarComponent implements OnInit {
-  @ViewChild('searchInput') searchInput; 
-  movies: Movie;
+  @ViewChild("searchInput") searchInput;
+  movies: Movie[];
   constructor(
     private store: Store<AppState>,
     private httpService: HttpService
   ) {
-    this.store.select("movies").subscribe(data => (this.movies = data));
-
+    this.store.select("movies").subscribe(data => {
+      this.movies = data;
+    });
   }
+
   onAddMovie(event: any) {
-    if(event.key ==='Enter')
-    this.onSearchMovies(this.searchInput.nativeElement.value)
+    if (event.key === "Enter")
+      this.onSearchMovies(this.searchInput.nativeElement.value);
   }
   onSearchMovies(input) {
+   this.searchInput.nativeElement.value = '';
     this.httpService.searchPosts(input);
   }
-  ngOnInit() {}
+  ngOnInit() {
+    
+  }
 }
