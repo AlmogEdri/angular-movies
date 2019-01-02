@@ -1,52 +1,206 @@
 @import "../../../assets/style/all";
+$post-hieght: 60px;
+$post-hieght-small: 70px;
+$post-width: 90vw;
+$transition: all .6s linear;
+
+
+
+.container {
+  height: $post-hieght;
+  margin-bottom: 10px;
+  position: relative;
+  padding-right: 0px;
+  padding-left: 0px;
+  z-index: 1;
+
+  @include bp(sm) {
+    margin-bottom: 20px;
+
+  }
+}
+
+.flip-container {
+  display: block;
+  position: relative;
+  height: $post-hieght;
+  width: 100%;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transform: preserve-3d(0, 0, 0);
+  transition: all 1.0s linear;
+
+}
+
+.container:hover .flip-container,
+.flip-container:hover {
+
+
+  transform: rotateY(180deg);
+  transform: preserve-3d(0, 0, 0);
+
+  transition: all 1.0s linear;
+
+  @include bp(sm) {
+    height: $post-hieght-small;
+    box-shadow: -5px 5px 5px #aaa;
+  }
+
+}
 
 .main-row {
+  transform: rotateY(0deg);
+  backface-visibility: hidden;
+  top: 0;
+  left: 0;
+  height: $post-hieght;
+  width: 100%;
   background-color: $color-light-blue;
   color: white;
-  width: 100%;
   margin-left: 0px;
   margin-right: 0px;
   padding: 5px 5px;
+  border-radius: 10px;
+  opacity: 1;
+  transition: all 1.0s linear;
+
+
+  @include bp(sm) {
+    height: $post-hieght-small;
+  }
 }
 
-.details-box {
-  overflow: hidden;
-  height: 0px;
-}
 
 .title-box {
-  width: calc(100% - 132px); // 100% width - 120px(.btn-box)
-  display: inline-block;
+  backface-visibility: hidden;
+  display: block;
+  width: 100%;
+  padding: 0 15px;
+  transition: all 1s linear;
+
+  * {
+    display: inline-block;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &:nth-child(1n) {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 60%;
+      padding-right: 10px;
+
+      @include bp(sm) {
+        width: 50%;
+      }
+    }
+
+    &:nth-child(2n) {
+      width: 20%;
+
+      @include bp(sm) {
+        width: 25%;
+      }
+    }
+
+    &:nth-child(3n) {
+      width: 20%;
+
+      @include bp(sm) {
+        width: 25%;
+      }
+    }
+  }
+
+
+
 }
 
-.title-text {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 20px;
-  @include bp(sm) {font-size: 18px}
+.title- {
+  &text {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
 
+    @include bp(sm) {
+      font-size: 18px
+    }
+  }
+
+  &runtime {
+    text-align: right;
+  }
+
+  &year {}
 }
 
 .btn-box {
+  height: 0;
   width: 132px;
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+
+  @include bp(sm) {
+    height: $post-hieght-small;
+    padding: 15px 20px;
+    right: 5px;
+  }
+}
+
+.action-btn {
+  backface-visibility: hidden;
+
+  box-sizing: border-box;
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 9;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:nth-child(2) {
+    left: calc(50%);
+  }
 }
 
 .details-box {
+
+  position: absolute;
+  top: 0;
+  right: 50%;
+  display: block;
+  width: 100%;
+  height: $post-hieght;
+  transform: rotateY(180deg) translateX(-50%);
+  transition: all 1s linear;
   background-color: $color-light-azure;
+  padding: 7px 20px;
+  border-radius: 10px;
   box-shadow: 0px 5px 20px rgba($color: $color-dark-blue, $alpha: .3);
-  padding: 0 20px;
-  border-radius: 0px 0 10px 10px;
+  box-sizing: border-box;
+  backface-visibility: hidden;
+
+  @include bp(sm) {
+    height: $post-hieght-small;
+    padding: 15px 20px;
+  }
 }
 
 .details-item {
-  display: inline-block;
-  width: 50%;
+  display: block;
+  width: calc(100% - 132px); // 100% width - 132px(.btn-box)
   padding-left: 5px;
-  @include bp(sm) {font-size: 14px}
 
+  @include bp(sm) {
+    font-size: 12px
+  }
 }
-
-
-
-@include bp(md) {}

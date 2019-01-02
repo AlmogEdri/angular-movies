@@ -5,6 +5,6 @@ import { Pipe, PipeTransform } from "@angular/core";
 })
 export class OnlyEnglishPipe implements PipeTransform {
   transform(value: string, exponent: string): string {
-    return value.replace(/[^\x00-\x7F]/g, "");
+    return value.replace(/[^\w\s]/gi, "");
   }
 }

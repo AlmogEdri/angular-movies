@@ -40,17 +40,23 @@ export class ValidationService {
     if (this.movies.length > 0) {
       let exist = false;
       this.movies.map(x => {
-        if (
-          subject.localeCompare(x.Title) &&
-          !String(x.Id).localeCompare(String(form.Id))
-        ) {
-          exist = true;
+        if (String(x.Id).localeCompare(String(form.Id)) !== 0) {
+          if (subject.localeCompare(x.Title) === 0) {
+            exist = true;
+          }
         }
       });
       if (exist) {
         errors.Title = [...errors.Title, "Title alredy exist."];
         isErrors = true;
       }
+    }
+    if (subject.replace(/[^\w\s]/gi, "") !== subject) {
+      errors.Title = [
+        ...errors.Title,
+        "Title  can only contain English letters and numbers."
+      ];
+      isErrors = true;
     }
     //Year validation
     let yearRegEx = /(^\d{4}$|^\d{4}-\d{4}$|^\d{4}–\d{4}$)/;
